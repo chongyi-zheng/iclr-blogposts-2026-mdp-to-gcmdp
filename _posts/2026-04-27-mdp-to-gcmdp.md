@@ -416,11 +416,4 @@ In this blog post, we share new ideas about converting a standard RL problem int
 
 Answering these questions not only introduces new interpretations to the RL problems but also motivates the development of efficient and scalable RL algorithms. Taken together, we are excited to see more progress towards general-purpose reinforcement learning agents that can actually understand the world.
 
-<!-- 
-(Chongyi): bring back for the camera-ready version.
-## Acknowledgements
-
-We thank ... 
--->
-
 ---
