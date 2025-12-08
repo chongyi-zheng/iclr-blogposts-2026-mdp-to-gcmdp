@@ -342,7 +342,7 @@ Therefore, when $\gamma_{\text{aug}} = 1$, the augmented GCMDP preserves policy 
 </details>
 
 <span style="color: #e56a1eff;">
-<strong style="color: #e56a1eff;">Remark.</strong> When setting $$\gamma_{\text{aug}} = 1$$, one intriguing observation is that the augmented GCMDP is also equivalent to a SSP problem.
+<strong style="color: #e56a1eff;">Remark.</strong> When setting $$\gamma_{\text{aug}} = 1$$, one intriguing observation is that the augmented GCMDP is also equivalent to an SSP problem.
 </span>
 
 We next mention some practical caveats of our conversion from an RL problem to a GCRL problem.
@@ -365,7 +365,7 @@ In practice, solving the augmented GCMDP might not be easier than solving the or
   Cliff Walking involves crossing a gridworld from a random start (stool) to the goal (cookie) while avoiding falling off a cliff.
 </div>
 
-To study whether we can use GCRL algorithms to solve the augmented GCMDP, we conduct experiments in a canonical discrete MDP called Cliff Walking. This MDP is adapted from Example 6.6 from Sutton and Barto (1998)<d-cite key="sutton1998reinforcement"></d-cite> and requires the agent to navigate from a random start to the goal while avoiding falling off a cliff. The state space covers $48$ discrete states in the gridworld and the action space contains $4$ actions: left, right, up, and down. The agents receive a reward of $0$ when staying at the goal, a reward of $-1$ when not reaching the goal, and a reward of $-100$ when stepping into the cliff. We construct the augmented GCMDP by *(1)* normalizing the rewards into $$[0, 1]$$, *(2)* augmenting the state space with the success state $g_+$ and the failure state $g_-$, and *(3)* modifying the reward function as in Eq.$~\ref{eq:aug-transition-prob-measure}$.
+To study whether we can use GCRL algorithms to solve the augmented GCMDP, we conduct experiments in a canonical discrete MDP called Cliff Walking. This MDP is adapted from Example 6.6 from Sutton and Barto (1998)<d-cite key="sutton1998reinforcement"></d-cite> and requires the agent to navigate from a random start to the goal while avoiding falling off a cliff. The state space covers $48$ discrete states in the gridworld, and the action space contains $4$ actions: left, right, up, and down. The agents receive a reward of $0$ when staying at the goal, a reward of $-1$ when not reaching the goal, and a reward of $-100$ when stepping onto the cliff. We construct the augmented GCMDP by *(1)* normalizing the rewards into $$[0, 1]$$, *(2)* augmenting the state space with the success state $g_+$ and the failure state $g_-$, and *(3)* modifying the reward function as in Eq.$~\ref{eq:aug-transition-prob-measure}$.
 
 We select four different state-of-the-art GCRL and SSP algorithms to solve the augmented GCMDP, comparing against the standard Q-learning algorithm in the original MDP.
 
@@ -395,7 +395,7 @@ The results in the figure above suggest that Q-learning quickly converges to $10
       {% include figure.liquid path="assets/img/2026-04-27-mdp-to-gcmdp/riverswim.svg" class="img-fluid rounded" %}
   </div>
   <div class="caption">
-    River Swim involves swimming across a river by choosing to move right at each state. The exploration is challenging due to stochstic transitions.
+    River Swim involves swimming across a river by choosing to move right at each state. The exploration is challenging due to stochastic transitions.
   </div>
 
   Additionally, we conduct experiments in the River Swim MDP<d-cite key="strehl2008analysis"></d-cite>, which requires exploration to reach the end of the river (linear chain of states) by choosing to move right at each state. The agent receives a reward of $1.0$ in the rightmost state and receives a small distractor reward of $0.005$ if it moves left at any other state. To avoid policy initialization bias, we randomize which action moves left versus right at each state. 
