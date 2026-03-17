@@ -217,7 +217,7 @@ As indicated by the goal-conditioned transitions in Eq.$$~\ref{eq:ssp-transition
 {% include figure.liquid path="assets/img/2026-04-27-mdp-to-gcmdp/1d-car.png" class="img-fluid rounded" %}
 </div>
 <div class="caption">
-  Goal-conditioned RL (GCRL) methods aim to not only reach the goal but also stay at the goal as long as possible, while stochastic shortest path (SSP) algorithms are tasked to reach the goal as quickly as possible.
+  Goal-conditioned RL (GCRL) methods aim to not only reach the goal but also stay at the goal as long as possible, while stochastic shortest path (SSP) algorithms are tasked to reach the goal as quickly as possible. Figure credit: <a href="https://gemini.google.com">Google Gemini</a>.
 </div>
 
 <span style="color: #e56a1eff;">
