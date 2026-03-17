@@ -264,7 +264,8 @@ Building upon the three building blocks, we now show that any RL problem can be 
 
 These augmentations allow us to define the goal state as a singleton $$\mathcal{G}_{\text{aug}} = \{ g_+ \}$$ with goal prior $$p_{\mathcal{G}_{\text{aug}}}(g) = \delta(g \mid g_+)$$, choose the reward function as the delta measure $$r_\text{aug}(s, g) = \delta(s \mid g)$$. We will use a *separate* discount factor $$\gamma_{\text{aug}} \in [0, 1]$$ for the new augmented GCMDP. Taken together, the augmented GCMDP shares the same action space and initial state measure as the original MDP: $$\mathcal{M}_{\text{aug}} = (\mathcal{S}_{\text{aug}}, \mathcal{A}, \mathcal{G}_{\text{aug}}, p_{\text{aug}}, p_0, \gamma_{\text{aug}}, p_{\mathcal{G}_{\text{aug}}})$$. Below, we provide a didactic example showing the conversion from a standard MDP to its augmented GCMDP.
 
-<p align="left" id="def:proper-policy"><strong>Didactic example. </strong> River Swim involves swimming across a river by choosing to move right at each state. The solid arrows indicate transition probability measures of taking action RIGHT at each state. The dashed arrows indicate transition probability measures of taking action LEFT at each state. At state $s_0$, the agent receives a small reward by taking action LEFT, while, at state $s_5$, the agent receives a large reward by taking action RIGHT. The exploration is challenging due to stochastic transitions.
+<p align="left" id="def:proper-policy"><strong>Didactic example. </strong> River Swim MDP<d-cite key="strehl2008analysis"></d-cite> involves swimming across a river by choosing to move right at each state. The solid arrows indicate transition probability measures of taking action RIGHT at each state. The agent receives a reward of $1.0$ in the rightmost state and receives a small distractor reward of $0.005$ if it moves left at any other state. The exploration is challenging due to stochastic transitions.
+
 <div class="col mt-3">
     {% include figure.liquid path="assets/img/2026-04-27-mdp-to-gcmdp/riverswim_mdp.svg" class="img-fluid rounded" %}
 </div>
@@ -438,7 +439,7 @@ The results in the figure above suggest that Q-learning quickly converges to $10
 <details style="background-color: #f4f4f4ff; padding: 15px; border-left: 4px solid #1E88E5; margin: 20px 0;">
   <summary>Additional online experiments</summary>
 
-  Additionally, we conduct experiments in the River Swim MDP<d-cite key="strehl2008analysis"></d-cite>, which requires exploration to reach the end of the river (linear chain of states) by choosing to move right at each state. The agent receives a reward of $1.0$ in the rightmost state and receives a small distractor reward of $0.005$ if it moves left at any other state. To avoid policy initialization bias, we randomize which action moves left versus right at each state. 
+  Additionally, we conduct experiments in the River Swim MDP, which requires exploration to reach the end of the river (linear chain of states) by choosing to move right at each state. To avoid policy initialization bias, we randomize which action moves left versus right at each state.
 
   We compare the standard Q-learning and PPO<d-cite key="schulman2017proximal"></d-cite> algorithms in the original MDP against the GCQL in the augmented GCMDP, measuring the success rates in the augmented GCMDP. We also plot the success rate of an oracle agent that always goes right. Results are shown in the figure below.
   
